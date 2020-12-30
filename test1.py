@@ -8,7 +8,7 @@ from torchvision import datasets, transforms
 BATCH_SIZE = 512  # 大概需要2G的显存
 EPOCHS = 20  # 总共训练批次
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # 让torch判断是否使用GPU，建议使用GPU环境，因为会快很多
-MODEL_PATH = "model/helloworld.pth"
+# MODEL_PATH = "model/helloworld.pth"
 os.environ['CUDA_VISIBLE_DEVICES'] = '3'
 
 train_loader = torch.utils.data.DataLoader(
@@ -73,31 +73,31 @@ def train(model, device, train_loader, optimizer, epoch):
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                 epoch, batch_idx * len(data), len(train_loader.dataset),
                 100. * batch_idx / len(train_loader), loss.item()))
-    torch.save(model, MODEL_PATH)
+    # torch.save(model, MODEL_PATH)
 
 
-def test(model, device, test_loader):
-    # model.eval()  # 直接导入也可
-    # 以下为通过路径读
-    model = None
-    model = torch.load(MODEL_PATH)
-    model.eval()
-    test_loss = 0
-    correct = 0
-    with torch.no_grad():
-        for data, target in test_loader:
-            data, target = data.to(device), target.to(device)
-            output = model(data)
-            test_loss += F.nll_loss(output, target, reduction='sum').item()  # 将一批的损失相加
-            pred = output.max(1, keepdim=True)[1]  # 找到概率最大的下标
-            correct += pred.eq(target.view_as(pred)).sum().item()
+# def test(model, device, test_loader):
+#     # model.eval()  # 直接导入也可
+#     # 以下为通过路径读
+#     model = None
+#     model = torch.load(MODEL_PATH)
+#     model.eval()
+#     test_loss = 0
+#     correct = 0
+#     with torch.no_grad():
+#         for data, target in test_loader:
+#             data, target = data.to(device), target.to(device)
+#             output = model(data)
+#             test_loss += F.nll_loss(output, target, reduction='sum').item()  # 将一批的损失相加
+#             pred = output.max(1, keepdim=True)[1]  # 找到概率最大的下标
+#             correct += pred.eq(target.view_as(pred)).sum().item()
 
-    test_loss /= len(test_loader.dataset)
-    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-        test_loss, correct, len(test_loader.dataset),
-        100. * correct / len(test_loader.dataset)))
+#     test_loss /= len(test_loader.dataset)
+#     print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+#         test_loss, correct, len(test_loader.dataset),
+#         100. * correct / len(test_loader.dataset)))
 
 
 for epoch in range(1, EPOCHS + 1):
     train(model, DEVICE, train_loader, optimizer, epoch)
-    test(model, DEVICE, test_loader)
+    # test(model, DEVICE, test_loader)
