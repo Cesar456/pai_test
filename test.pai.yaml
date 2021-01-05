@@ -20,6 +20,7 @@ taskRoles:
       memoryMB: 6500
     commands:
       - "git clone https://github.com/Cesar456/pai_test.git"
+      - pwd
       - cd pai_test
       - python test2.py
 defaults:
