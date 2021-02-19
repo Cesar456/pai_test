@@ -10,5 +10,6 @@ print("*"*100)
 
 
 print(os.path.abspath('/mnt/nfs-storage'))
-logger.info('test')
+logger.info('test\n'*1000)
+print("end end end")
 time.sleep(100)
