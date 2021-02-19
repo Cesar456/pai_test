@@ -6,6 +6,8 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname
                     datefmt='%m-%d %H:%M:%S')
 logger = logging.getLogger("test")
 
+print("*"*100)
+
 
 print(os.path.abspath('/mnt/nfs-storage'))
 logger.info('test')
