@@ -22,7 +22,7 @@ taskRoles:
       - "git clone https://github.com/Cesar456/pai_test.git"
       - pwd
       - cd pai_test
-      - python test2.py
+      - python test1.py
 defaults:
   virtualCluster: default
 extras:
