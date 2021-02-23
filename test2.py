@@ -9,7 +9,8 @@ logger = logging.getLogger("test")
 print("*"*100)
 
 
-print(os.path.abspath('/mnt/nfs-storage'))
-logger.info('test\n'*1000)
-print("end end end")
-time.sleep(100)
+with open('/data/a.txt', 'w') as f:
+    for i in range(100):
+        f.write("*"*i+'\n')
+
+print('success')

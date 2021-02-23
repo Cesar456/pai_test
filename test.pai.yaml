@@ -28,7 +28,7 @@ defaults:
 extras:
   storages:
     - name: nfs-storage
-      mountPath: /mnt/data
+      mountPath: /data
   com.microsoft.pai.runtimeplugin:
     - plugin: ssh
       parameters:
