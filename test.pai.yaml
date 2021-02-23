@@ -29,7 +29,7 @@ extras:
   storages:
     - name: nfs-storage
       mountPath: /data
-  com.microsoft.pai.runtimeplugin:
-    - plugin: ssh
-      parameters:
-        jobssh: true
+  # com.microsoft.pai.runtimeplugin:
+  #   - plugin: ssh
+  #     parameters:
+  #       jobssh: true
