@@ -15,7 +15,7 @@ taskRoles:
     taskRetryCount: 0
     dockerImage: docker_image_0
     resourcePerInstance:
-      gpu: 0
+      gpu: 4
       cpu: 1
       memoryMB: 6500
     commands:

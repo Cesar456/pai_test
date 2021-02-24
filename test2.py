@@ -13,4 +13,5 @@ with open('/data/a.txt', 'w') as f:
     for i in range(100):
         f.write("*"*i+'\n')
 
+time.sleep(10000)
 print('success')
