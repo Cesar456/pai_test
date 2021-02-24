@@ -6,6 +6,9 @@ prerequisites:
   - type: dockerimage
     uri: "openpai/standard:python_3.6-pytorch_1.4.0-gpu"
     name: docker_image_0
+parameters:
+  a1: "111"
+  a2: "111"
 taskRoles:
   taskrole:
     instances: 1
@@ -15,9 +18,9 @@ taskRoles:
     taskRetryCount: 0
     dockerImage: docker_image_0
     resourcePerInstance:
-      gpu: 4
+      gpu: 1
       cpu: 1
-      memoryMB: 6500
+      memoryMB: 300
     commands:
       - "git clone https://github.com/Cesar456/pai_test.git"
       - pwd
@@ -29,7 +32,3 @@ extras:
   storages:
     - name: nfs-storage
       mountPath: /data
-  # com.microsoft.pai.runtimeplugin:
-  #   - plugin: ssh
-  #     parameters:
-  #       jobssh: true
