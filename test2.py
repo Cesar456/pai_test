@@ -1,4 +1,5 @@
 import os
+import sys
 import logging
 import time
 
@@ -8,10 +9,11 @@ logger = logging.getLogger("test")
 
 print("*"*100)
 
+print(sys.argv)
 
 with open('/data/a.txt', 'w') as f:
     for i in range(100):
         f.write("*"*i+'\n')
 
-time.sleep(10000)
+time.sleep(100)
 print('success')
