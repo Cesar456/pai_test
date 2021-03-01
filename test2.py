@@ -11,7 +11,7 @@ print("*"*100)
 
 print(sys.argv)
 
-with open('/data/a.txt', 'w') as f:
+with open('/common/a.txt', 'w') as f:
     for i in range(100):
         f.write("*"*i+'\n')
 
