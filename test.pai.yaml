@@ -2,8 +2,6 @@ protocolVersion: 2
 name: test1_job
 type: job
 jobRetryCount: 0
-user: cesar
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNlc2FyIiwiYXBwbGljYXRpb24iOmZhbHNlLCJpYXQiOjE2MTQxNTgyMDEsImV4cCI6MTYxNDc2MzAwMX0.f37LQei1Ju3Sv64lwty9dfxMTPBllFukdgm1K_Q9ANQ
 prerequisites:
   - type: dockerimage
     uri: "openpai/standard:python_3.6-pytorch_1.4.0-gpu"
@@ -22,10 +20,8 @@ taskRoles:
       memoryMB: 300
     commands:
       - "git clone https://github.com/Cesar456/pai_test.git"
-      - pwd
-      - echo ${period}
       - cd pai_test
-      - python test2.py ${a}
+      - python test2.py
 defaults:
   virtualCluster: default
 extras:
