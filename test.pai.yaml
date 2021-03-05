@@ -28,6 +28,5 @@ extras:
   storages:
     - name: nfs-storage
       mountPath: /data
-    - name: nfs-storage
-      mountPath: /data
-    
+    - name: common-nfs-storage
+      mountPath: /home/data
