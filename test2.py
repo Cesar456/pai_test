@@ -13,11 +13,13 @@ print("*"*100)
 
 print(sys.argv)
 
-with open('/common/a.txt', 'w') as f:
-    for i in range(100):
-        f.write("*"*i+'\n')
+# with open('/common/a.txt', 'w') as f:
+#     for i in range(100):
+#         f.write("*"*i+'\n')
 
-time.sleep(1000)
+# time.sleep(1000)
 print('success')
 
 hdfs.get('/tmp/cesar//ttt.txt', '/data/ahdfs.txt')
+
+print('success')

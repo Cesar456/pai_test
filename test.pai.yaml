@@ -19,6 +19,7 @@ taskRoles:
       cpu: 1
       memoryMB: 300
     commands:
+      - pip install hdfsutils -i https://pypi.mihoyo.com/simple/ 
       - "git clone https://github.com/Cesar456/pai_test.git"
       - cd pai_test
       - python test2.py
