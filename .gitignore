@@ -2,3 +2,5 @@
 data/
 online_*.py
 *.json
+DockerFiles/*
+*.yaml
