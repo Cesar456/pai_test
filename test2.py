@@ -1,25 +1,21 @@
+from hdfsutils import hive
 import os
-import sys
-import logging
-import time
-from hdfsutils import hdfs
+import torch
+import tensorflow as tf
+
+from tensorflow.python.client import device_lib
 
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s",
-                    datefmt='%m-%d %H:%M:%S')
-logger = logging.getLogger("test")
+data = hive.get_table_full_data('tmp', 'tmp_account_risk_steal_result_0308', partition_dict={1:1, "2":2}, row_format=',')
 
-print("*"*100)
+print(len(data))
+print(data[:10])
 
-print(sys.argv)
+print(torch.cuda.is_available())
+print(torch.cuda.get_device_name())
+print(torch.cuda.device_count())
 
-# with open('/common/a.txt', 'w') as f:
-#     for i in range(100):
-#         f.write("*"*i+'\n')
+gpu_device_name = tf.test.gpu_device_name()
+print(gpu_device_name)
+print(tf.test.is_gpu_available())
 
-# time.sleep(1000)
-print('success')
-
-hdfs.get('/tmp/cesar//ttt.txt', '/data/ahdfs.txt')
-
-print('success')
